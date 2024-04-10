@@ -1,6 +1,13 @@
 const express= require('express');
 const router= express.Router();
+const usersController= require('../controllers/usersController');
+const bodyParser = require('body-parser');
 
-router.post('/signUp');
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
-router.post('/signIn');
+router.post('/signUp',usersController.signUP);
+
+router.post('/signIn',usersController.signIN);
+
+module.exports=router;
