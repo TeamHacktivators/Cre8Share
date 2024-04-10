@@ -2,14 +2,14 @@ const passport = require("passport");
 
 const JWTStrategy = require("passport-jwt").Strategy;
 
-const ExtractJwt = require("passport-jwt").ExtractJwt;
+const extractJwt = require("passport-jwt").ExtractJwt;
 
 const User = require("../models/userSchema");
 
 const Creator = require("../models/creatorSchema");
 
 let opts = {
-  jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: "cre8share",
 };
 

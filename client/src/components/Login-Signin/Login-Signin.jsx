@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Login-Signup.css";
+import "../Login-Signup/Login-Signup.css";
 
-function LoginSignup() {
+function LoginSignin() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    confirm_password: "",
   });
 
   function handleChange(e) {
@@ -21,8 +19,8 @@ function LoginSignup() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/users/signUp", formData);
-      console.log("User signed up successfully:", response.data);
+      const response = await axios.post("http://localhost:8000/users/signIn", formData);
+      console.log("User signed in successfully:", response.data);
       // Redirect to another page or show a success message
     } catch (error) {
       console.error("Sign up failed:", error);
@@ -32,21 +30,9 @@ function LoginSignup() {
 
   return (
     <div className="Flex-Box">
-      <div className="Heading"> SIGN UP </div>
+      <div className="Heading"> SIGN IN </div>
       <div className="form-ui">
         <form className="form-uidesign " onSubmit={handleSubmit}>
-          <label>USERNAME</label>
-          <br />
-          <input
-            className="inputs"
-            type="text"
-            placeholder="Enter Your Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <br />
           <label>EMAIL</label> <br />
           <input
             className="inputs"
@@ -70,24 +56,12 @@ function LoginSignup() {
             required
           />
           <br />
-          <label>Confirm Password</label>
-          <br />
-          <input
-            className="inputs"
-            type="password"
-            placeholder="Confirm your password"
-            name="confirm_password"
-            value={formData.confirm_password}
-            onChange={handleChange}
-            required
-          />
-          <br />
           <p>
             {" "}
-            Already an Existing User ?<a href="">LogIn</a>
+            New User ?<a href="">SignUp</a>
           </p>
           <button className="buttonui" type="submit">
-            SIGNUP
+            SIGNIN
           </button>
         </form>
       </div>
@@ -95,4 +69,4 @@ function LoginSignup() {
   );
 }
 
-export default LoginSignup;
+export default LoginSignin;
