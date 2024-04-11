@@ -23,20 +23,24 @@ module.exports.signUP = async function (req, res) {
 };
 
 module.exports.signIN = async (req, res) => {
-  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ error: "Invalid credentials" });
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user || user.password != req.body.password) {
+      return res.json(422, {
+        message: "Invalid username or password",
+      });
     }
-    if (password != user.password) {
-      return res.status(401).json({ error: "Invalid credentials" });
-    }
-    // If the credentials are valid, generate a JWT token
-    const token = jwt.sign({ id: user._id }, 'cre8share');
-    res.json({ token });
-  } catch (error) {
-    console.error("Sign-in failed:", error);
-    res.status(500).json({ error: "Sign-in failed" });
+
+    const token = jwt.sign(user.toJSON(), "cre8share", { expiresIn: "1d" });
+
+    return res
+      .status(200)
+      .json({ message: "Token generated successfully", token });
+  } catch (err) {
+    console.log(err);
+    return res.json(500, {
+      message: "Internal server error",
+    });
   }
 };
