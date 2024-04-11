@@ -19,12 +19,14 @@ function LoginSignin() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/users/signIn", formData);
-      console.log("User signed in successfully:", response.data);
-      // Redirect to another page or show a success message
+      const response = await axios.post(
+        "http://localhost:8000/users/signIn",
+        formData
+      );
+      const token = response.data.token;
+      localStorage.setItem("token", token);
     } catch (error) {
       console.error("Sign up failed:", error);
-      // Handle sign-up failure (e.g., display error message to user)
     }
   }
 
