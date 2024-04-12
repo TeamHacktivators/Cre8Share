@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const analyticsSchema = new mongoose.Schema({
-    views:{
+    channelID:{
+        type:String,
+        required:true
+    },
+    subscribers:{
         type:Number,
         default:0
     },
@@ -13,7 +17,7 @@ const analyticsSchema = new mongoose.Schema({
         type:Number,
         default:0
     },
-    Subscribers:{
+    videoCount:{
         type:Number,
         default:0
     },
@@ -21,6 +25,8 @@ const analyticsSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Creator"
     }
+},{
+    timestamps:true
 });
 
 

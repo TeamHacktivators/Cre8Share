@@ -14,6 +14,18 @@ const creatorSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    channelName:{
+        type:String,
+        required:true
+    },
+    channelImage:{ 
+        type:String,
+        default:"https://i.pinimg.com/564x/e8/d7/d0/e8d7d05f392d9c2cf0285ce928fb9f4a.jpg"
+    },
+    channelID:{
+        type:String,
+        required:true
+    },
     stocks:[
         {
             stock:{
@@ -26,6 +38,8 @@ const creatorSchema = new mongoose.Schema({
         type:Number,
         default:0
     }
+},{
+    timestamps:true
 });
 
 // creating a model
