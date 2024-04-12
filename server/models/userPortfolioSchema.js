@@ -27,6 +27,8 @@ const userPortfolioSchema = new mongoose.Schema({
        default:0
    }
 
+},{
+    timestamps:true
 });
 
 // creating a model
