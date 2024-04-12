@@ -1,12 +1,30 @@
 import React from 'react';
-import LoginSignup from './components/Login-Signup/Login-Signup';
-import LoginSignin from './components/Login-Signin/Login-Signin';
+import LoginSignup from './components/User/Login-Signup/Login-Signup';
+import LoginSignin from './components/User/Login-Signin/Login-Signin';
 import './App.css';
+import Welcome from './components/Welcome/Welcome';
+import { RouterProvider, createBrowserRouter} from 'react-router-dom'
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path:'/',
+      element:<Welcome/>
+    },
+    {
+      path:'/signup',
+      element:<><LoginSignup/></>
+    },
+    {
+      path:'/login',
+      element:<><LoginSignin/></>
+    }
+  ])
   return (
     <div >
-      <LoginSignin/>
+      
+      <RouterProvider router={router}/>
+      
     </div>
   );
 }
