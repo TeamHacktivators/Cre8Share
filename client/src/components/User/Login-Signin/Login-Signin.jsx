@@ -32,7 +32,7 @@ function LoginSignin() {
 
   return (
     <div className="Flex-Box">
-      <div className="Heading"> SIGN IN </div>
+      <div className="Heading"> LOG IN </div>
       <div className="form-ui">
         <form className="form-uidesign " onSubmit={handleSubmit}>
           <label>EMAIL</label> <br />
