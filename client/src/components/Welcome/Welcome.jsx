@@ -1,8 +1,19 @@
-import React from 'react'
+import React , {useEffect} from "react"
 import "./Welcome.css"
-import { Link } from 'react-router-dom'
+import { Link , useLocation} from 'react-router-dom'
 
 const Welcome = () => {
+
+    const location = useLocation();
+
+    useEffect(() => {
+      const queryParams = new URLSearchParams(location.search);
+      const token = queryParams.get('token');
+  
+      if (token) {
+        localStorage.setItem('token', token);
+      }
+    }, [location]);
   
   return (
     
@@ -17,7 +28,7 @@ const Welcome = () => {
                 <h4>Hey! Are You A Youtube Creator<br/>
                     Start Your Journey By Just One Click
                 </h4>  
-                <button className='button-ui' type='submit'>Sign Up With Youtube</button>
+                <a href="http://localhost:8000/creators/auth/youtube" className='button-userui' type='submit' >Sign Up </a><br/>
             </div>
 
             <div className='User-form'>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Login-Signup.css";
+import { BrowserRouter as Router, Route, useNavigate } from "react-router-dom";
 
 function LoginSignup() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,10 @@ function LoginSignup() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/users/signUp", formData);
+      const response = await axios.post(
+        "http://localhost:8000/users/signUp",
+        formData
+      );
       console.log("User signed up successfully:", response.data);
       // Redirect to another page or show a success message
     } catch (error) {
