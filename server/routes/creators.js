@@ -4,6 +4,8 @@ const router = express.Router();
 
 const passport = require('passport');
 
+const cors = require("cors"); // Import cors package
+
 const creatorController = require("../controllers/createorController");
 
 // youtube authentication route

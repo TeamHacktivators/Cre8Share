@@ -16,7 +16,7 @@ const app = express();
 
 // Initializing CORS options
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with the origin of your React application
+  origin: "http://localhost:3000",
 };
 
 //usimg express-session
