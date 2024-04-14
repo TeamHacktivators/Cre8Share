@@ -26,10 +26,14 @@ function LoginSignin() {
       );
       const token = response.data.token;
       localStorage.setItem("token", token);
+     
+      window.location.href = "/UserDashboard";
     } catch (error) {
-      console.error("Sign up failed:", error);
+      console.error("Sign in failed:", error);
+      window.alert("Sign in failed. Please try again.");
     }
   }
+  
 
   return (
     <div className="Flex-Box">
@@ -63,7 +67,7 @@ function LoginSignin() {
             {" "}
             New User ?<Link to="/signup"  type='submit' >SIGN UP</Link>
           </p>
-          <Link to="/UserDashboard" className="buttonui" type='submit' >SIGN IN</Link>
+          <Link to="/UserDashboard" className="buttonui" type='submit' onClick={handleSubmit}>SIGN IN</Link>
         </form>
       </div>
     </div>

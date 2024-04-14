@@ -82,7 +82,7 @@ passport.use(
           await creator.save();
 
           const analytics = new Analytics({
-            channelID: channelData.id, 
+            channelID: channelData.id,
             subscribers: parseInt(channelData.statistics.subscriberCount),
             likes: totalLikes,
             dislikes: totalDislikes,
