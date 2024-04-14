@@ -28,7 +28,8 @@ const Welcome = () => {
                 <h4>Hey! Are You A Youtube Creator<br/>
                     Start Your Journey By Just One Click
                 </h4>  
-                <a href="http://localhost:8000/creators/auth/youtube" className='button-userui' type='submit' >Sign Up </a><br/>
+                <a href="http://localhost:8000/creators/auth/youtube" className='button-ui' 
+                    type='submit' >Sign Up With Youtube </a><br/>
             </div>
 
             <div className='User-form'>

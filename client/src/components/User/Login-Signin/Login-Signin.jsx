@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Login-Signup/Login-Signup.css";
+import { Link } from "react-router-dom";
 
 function LoginSignin() {
   const [formData, setFormData] = useState({
@@ -60,11 +61,9 @@ function LoginSignin() {
           <br />
           <p>
             {" "}
-            New User ?<a href="">SignUp</a>
+            New User ?<Link to="/signup"  type='submit' >SIGN UP</Link>
           </p>
-          <button className="buttonui" type="submit">
-            SIGNIN
-          </button>
+          <Link to="/UserDashboard" className="buttonui" type='submit' >SIGN IN</Link>
         </form>
       </div>
     </div>
