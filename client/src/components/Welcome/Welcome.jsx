@@ -3,17 +3,6 @@ import "./Welcome.css"
 import { Link , useLocation} from 'react-router-dom'
 
 const Welcome = () => {
-
-    const location = useLocation();
-
-    useEffect(() => {
-      const queryParams = new URLSearchParams(location.search);
-      const token = queryParams.get('token');
-  
-      if (token) {
-        localStorage.setItem('token', token);
-      }
-    }, [location]);
   
   return (
     

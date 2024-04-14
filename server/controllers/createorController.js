@@ -13,7 +13,7 @@ module.exports.signIN= async function(req,res){
     
         const token = jwt.sign(creator.toJSON(), "cre8share", { expiresIn: "1d" });
     
-        res.redirect(`http://localhost:3000/?token=${token}`);
+        res.redirect(`http://localhost:3000/CreatorDashboard?token=${token}`);
       } catch (err) {
         console.log(err);
         return res.json(500, {
