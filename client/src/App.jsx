@@ -4,6 +4,7 @@ import LoginSignin from './components/User/Login-Signin/Login-Signin';
 import './App.css';
 import Welcome from './components/Welcome/Welcome';
 import { RouterProvider, createBrowserRouter} from 'react-router-dom'
+import UserDashboard from './components/User/UserDashboard/UserDashboard';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +19,12 @@ function App() {
     {
       path:'/login',
       element:<><LoginSignin/></>
+    },
+    {
+      path:'/UserDashboard',
+      element:<><UserDashboard/></>
     }
+
   ])
   return (
     <div >

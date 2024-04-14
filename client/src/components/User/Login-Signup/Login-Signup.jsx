@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Login-Signup.css";
-import { BrowserRouter as Router, Route, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LoginSignup() {
   const [formData, setFormData] = useState({
@@ -88,11 +88,9 @@ function LoginSignup() {
           <br />
           <p>
             {" "}
-            Already an Existing User ?<a href="/LogIn">LogIn</a>
+            Already an Existing User ?<Link to="/login"  type='submit' >LogIn</Link>
           </p>
-          <button className="buttonui" type="submit">
-            SIGNUP
-          </button>
+          <Link to="/login" className="buttonui" type='submit' onChange={handleChange}>SIGN UP</Link>
         </form>
       </div>
     </div>
