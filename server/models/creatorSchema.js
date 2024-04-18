@@ -26,6 +26,10 @@ const creatorSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    accessToken:{
+        type:String,
+        required:true
+    },
     stocks:[
         {
             stock:{

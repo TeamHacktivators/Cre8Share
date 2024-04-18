@@ -9,5 +9,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use('/api',require('./api'));
 router.use('/users',require('./users'));
 router.use('/creators',require('./creators'));
+router.use('/stocks',require('./stock'));
 
 module.exports=router;
