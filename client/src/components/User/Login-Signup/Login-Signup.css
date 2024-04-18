@@ -1,5 +1,5 @@
 body{
-    background-color: #4287f5;
+    background-color:#d9d9db;
 
 }
 .Flex-Box{
@@ -7,14 +7,15 @@ body{
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 160px;
     
-    background: white;
+    background: rgb(55, 231, 241);
     padding-bottom: 30px;
     width: 350px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    box-shadow: 10px 10px none;
     
 }
 .Heading{
@@ -29,18 +30,21 @@ body{
 }
 
 .form-ui{
-    padding-bottom: 10px;  
+    padding-bottom: -6px;
+    margin-bottom: 6px;
 }
 .inputs{
     inline-size: 250px;
-    font-size: large;
+    font-size: larger;
+    border-radius: 10px;
+    border-style: groove;
 }
 
 .form-uidesign{
     padding: 10px;
-   
+    margin-bottom: 5px;
     font-size: large;
-    margin-right: 80px;   
+    margin-right: 50px;   
 }
 .next-page{ 
     display: flex;
