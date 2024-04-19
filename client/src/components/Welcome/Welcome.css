@@ -38,9 +38,9 @@ body{
 .button-userui{
     
     text-decoration: none;
-    background-color:rgb(248, 243, 243);
+    background-color:rgb(222, 228, 223);
     border-style: groove;
-    color:rgb(25, 25, 25);
+    color:rgb(50, 50, 50);
     border-radius: 6px;
     border-style: solid;
     display: flex;
@@ -55,7 +55,8 @@ body{
 }
 
 .Creator-form{
-    background-color:white;
+    background-color:rgb(230, 235, 231);
+   
     
     display: flex;
     flex-direction: column;
@@ -76,7 +77,7 @@ body{
   }
 
 .User-form{
-    background-color:white;
+    background-color:rgb(230, 235, 231);
     display: flex;
     flex-direction: column;
     justify-content: center;

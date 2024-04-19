@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter} from 'react-router-dom'
 import UserDashboard from './components/User/UserDashboard/UserDashboard';
 import CreatorDashboard from './components/Creator/CreatorDashboard';
 import Usernew from './components/Myuser/Usernew';
+import { CreatorNew } from './components/MyCreator/CreatorNew';
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ function App() {
     {
       path:'/Myuser',
       element:<><Usernew/></>
+    },
+    {
+      path:'/MyCreator',
+      element:<><CreatorNew/></>
     }
 
 
