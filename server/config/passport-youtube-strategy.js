@@ -17,11 +17,13 @@ passport.use(
         });
 
         if (creator) {
+          Creator.findByIdAndUpdate(creator._id, {
+            accessToken: accessToken,
+          });
           return done(null, creator);
         } else {
           const oauth2Client = new google.auth.OAuth2();
           oauth2Client.setCredentials({ access_token: accessToken });
-
           // Create a new instance of YouTube Data API
           const youtube = google.youtube({ version: "v3", auth: oauth2Client });
 
@@ -30,7 +32,9 @@ passport.use(
             mine: true,
             part: "snippet,contentDetails,statistics",
           });
-
+          if(!response.data.items){
+            return done(null,false);
+          }
           const channelData = response.data.items[0];
           const uploadsPlaylistId =
             channelData.contentDetails.relatedPlaylists.uploads;
@@ -77,16 +81,21 @@ passport.use(
             channelName: channelData.snippet.title,
             channelImage: channelData.snippet.thumbnails.default.url,
             channelID: channelData.id,
+            accessToken:accessToken
           });
 
           await creator.save();
 
+          const data={
+            subscribers:parseInt(channelData.statistics.subscriberCount),
+            likes:totalLikes,
+            dislikes:totalDislikes,
+            videoCount:parseInt(channelData.statistics.videoCount)
+          }
+
           const analytics = new Analytics({
             channelID: channelData.id,
-            subscribers: parseInt(channelData.statistics.subscriberCount),
-            likes: totalLikes,
-            dislikes: totalDislikes,
-            videoCount: parseInt(channelData.statistics.videoCount),
+            stats: [data],
             creator: creator._id,
           });
 

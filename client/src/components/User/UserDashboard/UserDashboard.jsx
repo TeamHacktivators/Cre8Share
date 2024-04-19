@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import StockList from '../../StockList/StockList';
 const UserDashboard = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,12 +35,18 @@ const UserDashboard = () => {
     <div>
       {/* Render userData here */}
       {userData && (
-        <div>
+       <>
+         <div>
           <h2>User Data</h2>
           <p>Name: {userData.name}</p>
           <p>Email: {userData.email}</p>
           {/* Render other user data properties as needed */}
         </div>
+        <h1>
+          Stock List         
+        </h1>
+        <StockList/>
+       </>
       )}
     </div>
   );

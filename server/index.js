@@ -4,6 +4,8 @@ const cors = require("cors");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
+const cron = require("node-cron");
+const {refresh}= require('./controllers/createorController');
 
 // Requiring database
 const db = require("./config/mongoose");
@@ -18,6 +20,16 @@ const app = express();
 const corsOptions = {
   origin: "http://localhost:3000",
 };
+
+//scheduling cron job for every friday to refresh
+cron.schedule("0 12 * * 5", async () => {
+  try {
+    await refresh(req, res);
+    console.log("Refresh function executed successfully");
+  } catch (error) {
+    console.error("Error executing refresh function:", error);
+  }
+});
 
 //usimg express-session
 app.use(
