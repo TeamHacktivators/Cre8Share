@@ -90,12 +90,9 @@ const CreatorDashboard = () => {
       ) : (
         <div>No creator data found.</div>
       )}
-<<<<<<< HEAD
-      
-      
-=======
+
       <StockForm />
->>>>>>> 30f58df23a55de96a86e15fd219ac44d6e80b15d
+
     </div>
   );
 };
