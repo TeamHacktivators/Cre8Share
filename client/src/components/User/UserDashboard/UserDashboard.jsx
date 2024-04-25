@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import StockList from '../../StockList/StockList';
+
 const UserDashboard = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [portfolio, setPortfolio] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +16,14 @@ const UserDashboard = () => {
             Authorization: `Bearer ${token}`
           }
         });
+
+       const portfolioResponse = await axios.get('http://localhost:8000/api/v1/usersAPI/getPortfolio', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        setPortfolio(portfolioResponse.data);
         setUserData(response.data);
         setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
@@ -40,12 +50,18 @@ const UserDashboard = () => {
           <h2>User Data</h2>
           <p>Name: {userData.name}</p>
           <p>Email: {userData.email}</p>
-          {/* Render other user data properties as needed */}
         </div>
         <h1>
-          Stock List         
+          Portfolio:-        
         </h1>
-        <StockList/>
+        {portfolio.stocks.map((stock,index)=>(
+          <ul key={index}>
+            <li>Stock Name: {stock.stockName}</li>
+            <li>Stock Quantity: {stock.totalQuanityPerStock}</li>
+            <li>Stock Price: {stock.gainPerStock}</li>
+          </ul>
+        ))}
+        <h2>Total Gain: {portfolio.totalGain}</h2>
        </>
       )}
     </div>

@@ -17,7 +17,7 @@ module.exports.addStock = async function (req, res) {
     const newStock = await Stock.create({
       name: name,
       currentPrice: currentPrice,
-      buyPrice: basePrice,
+      listPrice: basePrice,
       quantity: quantity,
       creator: creator._id,
     });

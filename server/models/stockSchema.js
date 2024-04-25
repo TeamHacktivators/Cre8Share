@@ -9,7 +9,7 @@ const stockSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    buyPrice: {
+    listPrice: {
         type: Number,
         required: true
     },
@@ -25,7 +25,7 @@ const stockSchema = new mongoose.Schema({
     unsold: {
         type: Number,
         default: function () {
-            return this.quantity; 
+            return this.quantity-this.sold; 
         },
         required: true
     },

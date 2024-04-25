@@ -8,6 +8,9 @@ const Analytics = require("../models/analyticsSchema");
 passport.use(
   new googleAuthStrategy(
     {
+      clientID:
+      "789419228170-v891enljgnrp4o4iq3gpmi991etlteo1.apps.googleusercontent.com",
+    clientSecret: "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",
       callbackURL: "http://localhost:8000/creators/auth/youtube/callback",
     },
     async function (accessToken, refreshToken, profile, done) {
