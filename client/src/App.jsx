@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter} from 'react-router-dom'
 import UserDashboard from './components/User/UserDashboard/UserDashboard';
 import CreatorDashboard from './components/Creator/CreatorDashboard';
 import Usernew from './components/Myuser/Usernew';
-import StockListPage from './components/StockList/StockList';
+import { CreatorNew } from './components/MyCreator/CreatorNew';
 
 function App() {
   const router = createBrowserRouter([
@@ -36,8 +36,8 @@ function App() {
       element:<><Usernew/></>
     },
     {
-      path:'/StockListPage',
-      element:<><StockListPage/></>
+      path:'/MyCreator',
+      element:<><CreatorNew/></>
     }
 
 
