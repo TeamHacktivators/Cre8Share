@@ -65,6 +65,7 @@ const CreatorDashboard = () => {
           <p>Channel Name: {creatorData.channelName}</p>
           <p>Channel ID: {creatorData.channelID}</p>
           <img src={creatorData.channelImage} alt="Channel Image" />
+          <p>Balance: {creatorData.balance}</p>
           <h1>Analytics Data</h1>
           <ul>
             <li>Likes: {analyticsData.stats[0].likes}</li>

@@ -90,7 +90,10 @@ function LoginSignup() {
             {" "}
             Already an Existing User ?<Link to="/login"  type='submit' >LogIn</Link>
           </p>
-          <Link to="/login" className="buttonui" type='submit' onChange={handleChange}>SIGN UP</Link>
+          {/* <Link to="/login" className="buttonui" type='submit' onChange={handleChange}>SIGN UP</Link> */}
+          <button type="submit" className="buttonui">
+            SIGN UP
+          </button>
         </form>
       </div>
     </div>

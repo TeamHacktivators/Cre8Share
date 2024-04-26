@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+/* body{
+    background-image: url('../Images/background1.png');
+} */
+=======
 body{
     background-color: rgb(223, 225, 228);
 }
+>>>>>>> 0093dde5cd7397142aa5922586800b8c1ff0bff8
 
 .imghandler{
     display: flex;

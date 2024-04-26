@@ -1,0 +1,75 @@
+.stock-market-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .share-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .share {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+  }
+  
+  .share h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .share p {
+    margin: 5px 0;
+  }
+  
+  .share button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .share button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal {
+    content: unset !important;
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+  }
+  
+  .modal input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .modal button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal button:hover {
+    background-color: #0056b3;
+  }
+  
+  .warning {
+    color: red;
+  }
+  
