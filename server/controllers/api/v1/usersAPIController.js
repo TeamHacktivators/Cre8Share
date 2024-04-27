@@ -17,9 +17,9 @@ exports.getUserData = async (req, res) => {
 
 exports.getPortfolio = async (req, res) => {
   try{
-    const portfolio = await Portfolio.findOne({ user: req.user.id });
+    const portfolio = await Portfolio.findOne({ user: req.user.id }).populate("stocks.stock");
     if(!portfolio){
-      return res.status(404).json({ error: "Portfolio not found" });
+      return res.status(200).json({ data: "Portfolio not exists" });
     }
     return res.status(200).json(portfolio);
   }catch(err){

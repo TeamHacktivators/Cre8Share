@@ -28,13 +28,7 @@ const analyticsSchema = new mongoose.Schema({
         },
         valuation:{
             type:Number,
-            default:function(){
-                if(this.videoCount>0){
-                    return ((this.subscribers*0.1)+this.likes-this.dislikes)/this.videoCount;
-                }else{
-                    return 0;
-                }
-            }
+            default:0
         }
     }],
     creator: {

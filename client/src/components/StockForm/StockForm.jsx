@@ -34,14 +34,13 @@ const StockForm = () => {
       });
 
       // Redirect to localhost:3000/creatorDashBoard after successful form submission
-      window.location.href = `http://localhost:3000/CreatorDashboard?token=${token}`;
+      window.location.href = `http://localhost:3000/MyCreator?token=${token}`;
     } catch (error) {
       console.error("Stock allocation failed:", error);
     }
   };
 
   return (
-    <div className="centered-form">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -67,7 +66,6 @@ const StockForm = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
-    </div>
   );
 };
 

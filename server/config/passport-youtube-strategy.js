@@ -8,6 +8,9 @@ const Analytics = require("../models/analyticsSchema");
 passport.use(
   new googleAuthStrategy(
     {
+      clientID:
+        "789419228170-v891enljgnrp4o4iq3gpmi991etlteo1.apps.googleusercontent.com",
+      clientSecret: "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",
       callbackURL: "http://localhost:8000/creators/auth/youtube/callback",
     },
     async function (accessToken, refreshToken, profile, done) {
@@ -32,8 +35,8 @@ passport.use(
             mine: true,
             part: "snippet,contentDetails,statistics",
           });
-          if(!response.data.items){
-            return done(null,false);
+          if (!response.data.items) {
+            return done(null, false);
           }
           const channelData = response.data.items[0];
           const uploadsPlaylistId =
@@ -81,17 +84,30 @@ passport.use(
             channelName: channelData.snippet.title,
             channelImage: channelData.snippet.thumbnails.default.url,
             channelID: channelData.id,
-            accessToken:accessToken
+            accessToken: accessToken,
           });
 
           await creator.save();
 
-          const data={
-            subscribers:parseInt(channelData.statistics.subscriberCount),
-            likes:totalLikes,
-            dislikes:totalDislikes,
-            videoCount:parseInt(channelData.statistics.videoCount)
+          let valuation;
+          if (channelData.statistics.videoCount > 0) {
+            valuation = parseFloat(
+              (channelData.statistics.subscriberCount * 0.1 +
+                likes -
+                dislikes) /
+                channelData.statistics.videoCount
+            );
+          } else {
+            valuation = 0;
           }
+
+          const data = {
+            subscribers: parseInt(channelData.statistics.subscriberCount),
+            likes: totalLikes,
+            dislikes: totalDislikes,
+            videoCount: parseInt(channelData.statistics.videoCount),
+            valuation: valuation,
+          };
 
           const analytics = new Analytics({
             channelID: channelData.id,
