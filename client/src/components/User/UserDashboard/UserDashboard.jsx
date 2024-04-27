@@ -3,9 +3,9 @@ import axios from 'axios';
 import StockList from '../../StockList/StockList';
 
 const UserDashboard = () => {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState("");
   const [loading, setLoading] = useState(true);
-  const [portfolio, setPortfolio] = useState(null);
+  const [portfolio, setPortfolio] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,11 +54,11 @@ const UserDashboard = () => {
         <h1>
           Portfolio:-        
         </h1>
-        {portfolio.stocks.map((stock,index)=>(
+        {portfolio.stocks !== undefined && portfolio.stocks.map((stock,index)=>(
           <ul key={index}>
-            <li>Stock Name: {stock.stockName}</li>
-            <li>Stock Quantity: {stock.totalQuanityPerStock}</li>
-            <li>Stock Price: {stock.gainPerStock}</li>
+            <li>Stock Name: {stock.stock.name}</li>
+            <li>Stock Quantity: {stock.totalQuantityPerStock}</li>
+            <li>Profit or Loss: {stock.gainPerStock}</li>
           </ul>
         ))}
         <h2>Total Gain: {portfolio.totalGain}</h2>

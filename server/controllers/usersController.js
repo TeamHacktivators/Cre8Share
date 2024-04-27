@@ -68,7 +68,7 @@ function calculateNewPrice(
 module.exports.buyStock = async (req, res) => {
   try {
     const stockId = req.params.id;
-    const quantity = req.body.quantity;
+    const quantity = parseInt(req.body.quantity);
     const userId = req.user._id;
 
     const stock = await Stock.findById(stockId).populate("creator");
@@ -93,8 +93,10 @@ module.exports.buyStock = async (req, res) => {
                 buyPrice: stock.currentPrice,
               },
             ],
+            totalQuantityPerStock : quantity
           },
         ],
+        totalQuantity: quantity,
       });
     } else {
       let stockIndex = userPortfolio.stocks.findIndex((s) =>
@@ -110,7 +112,9 @@ module.exports.buyStock = async (req, res) => {
               buyPrice: stock.currentPrice,
             },
           ],
+          totalQuantityPerStock : quantity
         });
+        userPortfolio.totalQuantity += quantity;
       } else {
         let totalGainPerStock = 0;
         let totalQuantityPerStock = 0;
@@ -131,10 +135,14 @@ module.exports.buyStock = async (req, res) => {
       }
     }
     let totalGain = 0;
+    let totalQuantity = 0;
     userPortfolio.stocks.map((stock) => {
-      totalGain += stock.totalQuantityPerStock;
+      totalGain += stock.gainPerStock;
+      totalQuantity += stock.totalQuantityPerStock;
     });
+
     userPortfolio.totalGain = totalGain;
+    userPortfolio.totalQuantity = totalQuantity;
 
     await userPortfolio.save();
 
@@ -172,29 +180,27 @@ module.exports.buyStock = async (req, res) => {
     });
 
     for (const portfolio of affectedPortfolios) {
+      if(portfolio.user.equals(userId)){
+        continue;
+      }
       let totalGain = 0;
-      for (const currstock of portfolio.stocks) {
+      let totalQuantity = 0;
+      let stockIndex =portfolio.stocks.findIndex((s) =>
+        s.stock.equals(stockId)
+      );
+      let currstock=portfolio.stocks[stockIndex];
         let stockGain = 0;
-        let stockQuantity = 0;
         for (const info of currstock.stockInfo) {
           const gain = (stock.currentPrice - info.buyPrice) * info.quantity;
           info.gain = gain;
           stockGain += gain;
-          stockQuantity += info.quantity;
         }
+        portfolio.totalGain= portfolio.totalGain-currstock.gainPerStock;
         currstock.gainPerStock = stockGain;
-        currstock.totalQuantityPerStock = stockQuantity;
         totalGain += stockGain;
-        totalQuantity += stockQuantity;
-        portfolio.totalGain = totalGain;
-      }
-      // portfolio.totalGain = totalGain;
+      portfolio.totalGain = portfolio.totalGain + totalGain;
       await portfolio.save();
     }
-
-    // Emit socket event
-    const io = req.app.get("socketio");
-    io.emit("stockBought");
 
     return res.status(200).json({
       message: "Stock bought successfully",

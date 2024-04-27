@@ -27,7 +27,7 @@ function LoginSignin() {
       const token = response.data.token;
       localStorage.setItem("token", token);
      
-      window.location.href = "/UserDashboard";
+      window.location.href = "/MyUser";
     } catch (error) {
       console.error("Sign in failed:", error);
       window.alert("Sign in failed. Please try again.");

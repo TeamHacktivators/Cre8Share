@@ -17,7 +17,7 @@ export  const Usernewdata = [
         link:'/home',
      },
      {
-        title:'SellShares',
+        title:'Buy Stocks',
         icon:<AddCircleIcon/>,
         link:'/home',
      },
