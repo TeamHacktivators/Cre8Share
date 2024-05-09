@@ -51,7 +51,7 @@ function LoginSignup() {
             required
           />
           <br />
-          <label>EMAIL</label> <br />
+          <label>EMAIL</label> <br/>
           <input
             className="inputs"
             type="email"
@@ -86,7 +86,7 @@ function LoginSignup() {
             required
           />
           <br />
-          <p>
+          <p style={{color:'black'}}>
             {" "}
             Already an Existing User ?<Link to="/login"  type='submit' >LogIn</Link>
           </p>

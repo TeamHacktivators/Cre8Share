@@ -42,34 +42,35 @@ body{
     font-size: 24;
     text-decoration:none;
     padding: 4px;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-left: 15px;
 }
 .button-userui{
     
     text-decoration: none;
-    background-color:rgb(222, 228, 223);
+    background-color:#ededf0;
     border-style: groove;
     color:rgb(20, 19, 19);
     border-radius: 6px;
-    border-style:inherit;
+    border-style:solid;
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 20px;
-    width: 150px;
+    width: 160px;
+    margin-left: 30px;
     padding-left: 16px;
     padding-right: 16px;
     margin-top: 4px;
           
 }    
 .button-userui:hover{
-    background-color: rgb(14, 30, 210);
+    background-color: rgb(9, 9, 10);
+    color:#ededf0;
 }
 
 .Creator-form{
-    background-color:#e01405;
-   
-    
+    background-color:#ededf0;  
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -80,18 +81,29 @@ body{
     width:370px;
     height:320px;
     margin-bottom: 20px;
+    border-width: 2px;
     border-radius: 8px;
-    border-style:inherit;
-    box-shadow: 10px 10px none;
-    transition-property: height ;
-}
-.Creator-form:hover{
-    height: 330px;
+    border-style:solid;
+    box-shadow: 10px 10px 5px;
     
-  }
+}
+.Creator{
+    background-color: #4b40da;  
+    display: flex; 
+    justify-content:center;
+    align-items:center;
+    font-size: large;
+    margin-left: -280px;
+    padding:5px;
+    width:370px;
+    height: 20%;
+    margin-bottom: 20px;
+
+}
+
 
 .User-form{
-    background-color:#0d0d0e;
+    background-color:#ededf0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,15 +113,14 @@ body{
     width:370px;
     height:320px;
     margin-bottom: 20px;
+    border-width: 2px;
     border-radius: 8px;
-    border-style:inherit;
-    box-shadow: 10px 10px none;
-    transition-property: height ;
+    border-style:solid;
+    box-shadow: 10px 10px 5px;
+    
 }
 
-.User-form:hover{
-    height: 330px; 
-  }
+
 
 .footer{
     margin-top: 40px;
@@ -120,5 +131,22 @@ body{
 }
 .MyImage{
     margin-top: -130px;
-    margin-left: 90px;
+    margin-left: 90px;   
 }
+
+.Creator-one{
+   display: block;
+   margin-top:-80px ;
+   align-items: center;
+   justify-Content:'center';
+}
+.User-one{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top: 5px;
+       
+}
+.User-two{
+    margin-top: 18px;
+}
+

@@ -4,11 +4,9 @@ import LoginSignin from './components/User/Login-Signin/Login-Signin';
 import './App.css';
 import Welcome from './components/Welcome/Welcome';
 import { RouterProvider, createBrowserRouter} from 'react-router-dom'
-import UserDashboard from './components/User/UserDashboard/UserDashboard';
 import CreatorDashboard from './components/Creator/CreatorDashboard';
 import Usernew from './components/Myuser/Usernew';
-import {CreatorNew} from './components/MyCreator/CreatorNew';
-import StockListPage from './components/StockList/StockList';
+import { CreatorNew } from './components/MyCreator/CreatorNew';
 
 function App() {
   const router = createBrowserRouter([
@@ -25,10 +23,6 @@ function App() {
       element:<><LoginSignin/></>
     },
     {
-      path:'/UserDashboard',
-      element:<><UserDashboard/></>
-    },
-    {
       path:'/CreatorDashboard',
       element:<><CreatorDashboard/></>
     },
@@ -39,11 +33,8 @@ function App() {
     {
       path:'/MyCreator',
       element:<><CreatorNew/></>
-    },
-    {
-      path:'/Myuser/StockListPage',
-      element:<><StockListPage/></>
     }
+
 
 
   ])

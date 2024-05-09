@@ -14,6 +14,7 @@ body{
     height: 100%;
     width:250px;
     background-color: #4e73df;
+    margin-left: -30px;
 }  
 
 .headings{
@@ -30,8 +31,9 @@ body{
     margin-left: 300px; 
     margin-top:-650px;
     background-color: #e7e9ec;
-    
+    font-weight: bold;
     border-style:solid;
+    border-color: #4e73df;
     width:400px;
     height: 140px;
     border-width: 1px;
@@ -41,7 +43,7 @@ body{
 }
 
 .upperpartwo{
-    
+    font-weight: bold;
     margin-left: 706px; 
     margin-top: -140px;
     background-color: #e7e9ec;
@@ -49,10 +51,10 @@ body{
     width: 400px;
     height: 140px;
     border-width: 1px;
-    
+    border-color: #4e73df;
 }
 .upperpartthree{
-    
+    font-weight: bold;
     margin-left: 1113px; 
     margin-top: -140px;
     background-color: #e7e9ec;
@@ -63,7 +65,7 @@ body{
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     box-shadow: 5px 5px none;
-    
+    border-color: #4e73df;
 }
 
 .lowerpart{
@@ -73,8 +75,8 @@ body{
     margin-top: 40px;
     background-color: #e9ebee;
     border-style:solid;
-    width:1200px;
-    height: 400px;
+    width:600px;
+    height: 300px;
     border-radius: 16px;
     border-width: 1px;
     box-shadow: 5px 5px none;
@@ -106,7 +108,7 @@ body{
     font-size: 20px;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: 330px;
+    margin-top: 230px;
     margin-bottom: 20px;
     margin-left: -480px;
     color: rgb(243, 242, 242);
@@ -134,4 +136,43 @@ body{
 }
 .buttonSell:hover{
     background-color: #111111;
+}
+.table{
+    display: block;
+    overflow: hidden;
+    
+    border-collapse: collapse;
+    overflow-x: auto;
+    table-layout: auto;
+}
+.table thead{
+    background-color: #faf5f5;
+    color:#060606;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+      
+}
+.table th{
+    padding:0.9cqmax;
+}
+.table th, .table td{
+    padding: 0.8rem;
+}
+.table td{
+    color:#110f0f;
+}
+.table tbody tr:hover{
+    background-color: #eee;
+}
+.sell{
+    font-size: medium;
+    border-radius: 4px;
+    border-color: #f01212;
+}
+.buy{
+    font-size: medium;
+    border-radius: 4px;
+    border-color: #1230f0;
 }

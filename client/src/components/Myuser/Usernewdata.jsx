@@ -38,18 +38,5 @@ export  const Usernewdata = [
      },
 ]
   
-export const Portfolio = [
-   {
-      title:'Mankind',
-      valuation:'',      
-   },
-   {
-      title:'Brain Hacks',
-      valuation:'',      
-   },
-   {
-      title:'Technical Sumit',
-      valuation:'',      
-   },
-]
+
 

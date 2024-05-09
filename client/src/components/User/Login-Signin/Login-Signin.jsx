@@ -36,7 +36,7 @@ function LoginSignin() {
   
 
   return (
-    <div className="Flex-Box">
+    <div className="Flex-Box" style={{height:400}}>
       <div className="Heading"> LOG IN </div>
       <div className="form-ui">
         <form className="form-uidesign " onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ function LoginSignin() {
             required
           />
           <br />
-          <p>
+          <p style={{color:"black"}}>
             {" "}
             New User ?<Link to="/signup"  type='submit' >SIGN UP</Link>
           </p>
